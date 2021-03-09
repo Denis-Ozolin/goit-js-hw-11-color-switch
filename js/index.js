@@ -2,7 +2,6 @@ const startBtnRef = document.querySelector('[data-action="start"]');
 const stopBtnRef = document.querySelector('[data-action="stop"]');
 const bodyRef = document.querySelector('body');
 let intervalId = null;
-let isActive = false;
 
 const colors = [
   '#FFFFFF',
@@ -22,15 +21,17 @@ function changeColor(){
 }
 
 startBtnRef.addEventListener('click', () => {
-  if(isActive) return;
+  if(startBtnRef.disabled === true) return;
+
   intervalId = setInterval(() => {
-    isActive = true;
+    startBtnRef.disabled = true;
     changeColor();
   }, 1000);
 });
 
 stopBtnRef.addEventListener('click', () => {
-  isActive = false;
+  startBtnRef.disabled = false;
   clearInterval(intervalId);
 })
+
 
