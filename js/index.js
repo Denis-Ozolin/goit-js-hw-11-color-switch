@@ -21,7 +21,7 @@ function changeColor(){
 }
 
 startBtnRef.addEventListener('click', () => {
-  if(startBtnRef.disabled === true) return;
+  if(startBtnRef.disabled) return;
 
   intervalId = setInterval(() => {
     startBtnRef.disabled = true;
